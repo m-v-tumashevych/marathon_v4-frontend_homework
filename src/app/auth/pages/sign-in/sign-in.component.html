@@ -1,0 +1,39 @@
+<div class="signin-page__wrapper">
+  <div class="signin-page__content-container">
+    <h1 class="hidden">Вхід</h1>
+    <p class="page-title">Привіт знову!</p>
+    <p class="page-description">Будь ласка введіть свої дані, щоб увійти</p>
+
+    <form class="signin-page__form">
+      <ul class="signin-page__form-list">
+        <li class="signin-page__form-list-item">
+          <pet-world-input [control]="email"
+                           [label]="inputLabels.email"
+                           [inputType]="inputTypes.email"
+                           [placeholder]="placeholders.email" />
+        </li>
+        <li class="signin-page__form-list-item">
+          <pet-world-input [control]="password"
+                           [label]="inputLabels.password"
+                           [inputType]="inputTypes.password"
+                           [placeholder]="placeholders.password" />
+        </li>
+      </ul>
+      <pet-world-checkbox [control]="confirmCheckboxControl" class="signin-page__confirm-checkbox">        
+        <span class="signin-page__confirm-checkbox--text">
+          Запам'ятати мене
+          <a class="link link--policy" [routerLink]="'#'">Забули пароль?</a>
+        </span>
+      </pet-world-checkbox>
+
+      <pet-world-button class="confirm-button" [isDisabled]="!isFormValid" (click)="signIn()">
+        {{ buttonContent.login }}
+      </pet-world-button>
+    </form>
+
+    <p class="action-description">
+      Ще не маєте аккаунту?
+      <a class="link" [routerLink]="['/', routingList.auth, routingList.signUp]">Зареєструватися</a>
+    </p>
+  </div>
+</div>
